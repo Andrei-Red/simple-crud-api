@@ -38,6 +38,7 @@ class Server {
         if (body) {
           req.body = JSON.parse(body);
         }
+
         this.middlewares.forEach((middleware) => middleware(req, res));
         console.log(`req.pathname`, req.pathname)
         const emitted = this.emitter.emit(

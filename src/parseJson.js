@@ -1,6 +1,6 @@
 const parseJson = (req, res) => {
   res.send = (data) => {
-    res.writeHead(200, {
+    res.writeHead(res.statusCode, {
       "Content-type": "application/json",
     });
     res.end(JSON.stringify(data));

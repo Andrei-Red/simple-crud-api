@@ -1,14 +1,17 @@
 const Router = require("./Router/Router");
-const { REQ_PERSON } = require("./const/consts");
+const { REQ_PERSON, ERROR_MESSAGE_INVALID_DATA } = require("./const/consts");
 const db = require("../db");
+const findPersonById = require('./utils/findPersonById')
 
 const router = new Router();
 
 router.get(REQ_PERSON, (req, res) => {
-    console.log('req.person.id', req.personId)
     if(req.personId) {
-        res.send(req.personId);
+        let request = findPersonById(db, req.personId)
+        res.statusCode = request ? 200 : 400
+        res.send(request ? request: ERROR_MESSAGE_INVALID_DATA);
     } else {
+        res.statusCode = 200
         res.send(db);
     }
 });
