@@ -1,0 +1,33 @@
+{
+  "name": "crud-api",
+  "description": "simple-crud-api",
+  "version": "1.0.0",
+  "main": "app.js",
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^10.0.0"
+  },
+  "devDependencies": {
+    "eslinter": "^3.2.1",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.4.1"
+  },
+  "scripts": {
+    "start:dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andrei-Red/simple-crud-api.git"
+  },
+  "keywords": [
+    "api",
+    "crud",
+    "server"
+  ],
+  "author": "Andrei Denisenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Andrei-Red/simple-crud-api/issues"
+  },
+  "homepage": "https://github.com/Andrei-Red/simple-crud-api#readme"
+}
