@@ -1,18 +1,14 @@
 require("dotenv").config();
 
 const Server = require("./src/Server/Server");
-const Router = require("./src/Router/Router");
-const { REQ_PERSON } = require("./src/const/consts");
+const router = require("./src/person-pouter");
+const parseJson = require('./src/parseJson')
+const parseUrl = require('./src/parseUrl')
 const PORT = process.env.PORT || 3000;
 
 const server = new Server();
-const router = new Router();
-
-router.get(REQ_PERSON, (req, res) => {
-  res.end("GET WORK");
-});
-
-
+server.use(parseJson)
+server.use(parseUrl(`http://localhost:${PORT}/`))
 server.addRouter(router)
 
 server.listen(PORT, () => {
