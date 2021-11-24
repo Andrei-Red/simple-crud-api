@@ -1,10 +1,20 @@
-require('dotenv').config()
-const http = require("http");
+require("dotenv").config();
 
-const PORT = process.env.PORT || 3000
+const Server = require("./src/Server/Server");
+const Router = require("./src/Router/Router");
+const { REQ_PERSON } = require("./src/const/consts");
+const PORT = process.env.PORT || 3000;
 
-http.createServer((req, res) => {
-    res.end('OK')
-}).listen(PORT, () => {
-    console.log(`Server stared on PORT ${PORT}`)
-})
+const server = new Server();
+const router = new Router();
+
+router.get(REQ_PERSON, (req, res) => {
+  res.end("GET WORK");
+});
+
+
+server.addRouter(router)
+
+server.listen(PORT, () => {
+  console.log(`Server stared on PORT ${PORT}`);
+});
