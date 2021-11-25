@@ -40,13 +40,14 @@ class Server {
         }
 
         this.middlewares.forEach((middleware) => middleware(req, res));
-        console.log(`req.pathname`, req.pathname)
+        // console.log(`req.pathname`, req.pathname)
         const emitted = this.emitter.emit(
           this._getRouterMask(req.pathname, req.method),
           req,
           res
         );
         if (!emitted) {
+          console.log('not !emitted, END')
           res.end();
         }
       });
