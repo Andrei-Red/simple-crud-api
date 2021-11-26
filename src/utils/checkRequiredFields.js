@@ -1,11 +1,6 @@
 const checkRequiredFields = (person) => {
   let answer = true;
 
-  console.log(
-    "checkForStringArray(person.hobbies)",
-    checkForStringArray(person.hobbies)
-  );
-
   if (typeof person.name !== "string") {
     answer = false;
   } else if (typeof person.age !== "number") {
@@ -13,7 +8,6 @@ const checkRequiredFields = (person) => {
   } else if (!Array.isArray(person.hobbies)) {
     answer = false;
   } else if (!checkForStringArray(person.hobbies)) {
-    console.log("dddd");
     answer = false;
   }
 
@@ -21,14 +15,13 @@ const checkRequiredFields = (person) => {
 };
 
 const checkForStringArray = (arr) => {
-  console.log("arr", arr);
   if (arr.length === 0) {
     return true;
   }
 
   let answer = true;
-  arr.forEach((hobbie) => {
-    if (typeof hobbie !== "string") {
+  arr.forEach((hobby) => {
+    if (typeof hobby !== "string") {
       answer = false;
     }
   });
