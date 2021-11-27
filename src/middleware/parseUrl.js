@@ -1,3 +1,5 @@
+const { REQ_PERSON } = require("../const/consts");
+
 const parseUrl = (baseUrl) => (req, res) => {
     const parsedUrl = new URL(req.url, baseUrl)
 
@@ -6,7 +8,7 @@ const parseUrl = (baseUrl) => (req, res) => {
     const secondUrlParams = arrUrl[2]
 
     if (firstUrlParams === 'person') {
-        req.pathname = ['/person']
+        req.pathname = [REQ_PERSON]
         req.personId = secondUrlParams ? secondUrlParams : null
     }
 };
