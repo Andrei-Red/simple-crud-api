@@ -27,3 +27,5 @@
 `uuid`
 `webpack`
 `nodemon`
+`prettier`
+`eslinter`
